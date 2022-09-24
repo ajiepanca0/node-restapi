@@ -27,7 +27,7 @@ exports.tampildatamahasiswaId = function(req,res){
         if(error){
             console.log(error);
         }else{
-            response.ok(rows, res)
+            response.ok(rows, res) 
         }
     });
 };
@@ -38,12 +38,13 @@ exports.tambahmahasiswa = function(req,res){
     var nama = req.body.nama;
     var jurusan = req.body.jurusan;
 
-    connection.query('INSERT INTO mahasiswa (nim,nama,jurusan) VALUES(?,?,?)',[nim,nama,jurusan],
+    connection.query('INSERT INTO mahasiswa (nim,nama,jurusan) VALUES(?,?,?)',
+    [nim,nama,jurusan],
     function (error,rows,fields){
         if(error){
             console.log(error);
         }else{
-            response.ok("Berhasil Menambahkan Data")
+            response.ok("Berhasil Menambahkan Data",res)
         }
-    })
-}
+    });
+};
